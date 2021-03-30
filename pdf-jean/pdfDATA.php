@@ -12,25 +12,28 @@
     //IMAGE
     $pdf->Image($minia,30,15,95,95);
 
-    //NOM PRODUIT
+    //QR CODE
+    $pdf->Image('./images/frame.png',170,5,20,0);
+
+    //NOM MODELE
     $pdf->SetTextColor(229, 35, 32); //#E52320
     $pdf->SetFont('seguisb','',24);
     $pdf->Cell(0,40,'',0,1);
     $pdf->Cell(9.,0,'');
-    $pdf->Write(5,'JEAN '.$nom);
+    $pdf->Write(5,'JEAN '.$modele);
 
     $pdf->Ln(5);
 
-    //COUPE
+    //NOM
     $pdf->SetTextColor(22, 47, 157); //#162F9D
     $pdf->SetFont('seguisb','',18);
-    $pdf->Cell(4,0,'');
-    $pdf->Write(10,'COUPE '.$coupe);
+    $pdf->Cell(15,0,'');
+    $pdf->Write(10,$nom);
 
     //TAILLE :
     $pdf->SetFont('segoeuisl','',14);
     $pdf->SetTextColor(0, 0, 0);
-    $pdf->Cell(85,0,'');
+    $pdf->Cell(90,0,'');
     $pdf->Write(25,'Taille :');
     $pdf->Ln(6);
 
@@ -39,15 +42,15 @@
     $pdf->Write(30,$prix);
 
     //DU .. AU .. TAILLE
-    $pdf->Cell(103,0,'');
+    $pdf->Cell(98.5,0,'');
     $pdf->Write(25,'du '.$tailleMin.' au '.$tailleMax);
     $pdf->Ln(6);
 
     //DU .. AU .. LONGUEUR
-    $pdf->Cell(133,0,'');
+    $pdf->Cell(128,0,'');
     $pdf->Write(35,'Longueur :');
     $pdf->Ln(6);
-    $pdf->Cell(133,0,'');
+    $pdf->Cell(128,0,'');
     $pdf->Write(35,'du '.$longMin.' au '.$longMax);
     $pdf->Ln(5);
 
@@ -57,21 +60,36 @@
     //DESCRIPTION
     $pdf->Cell(0,50,'',0,1);
     $pdf->Cell(9,40,'');
-    $pdf->MultiCell(100,7,$description,0,'J');
+    $pdf->SetFont('segoeuisl','',24);
+    $pdf->SetTextColor(22, 47, 157); //#162F9D
+    $pdf->Write(5,'DESCRIPTION');
+
+
+    $pdf->Ln(10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetFont('segoeuisl','',14);
+    $pdf->Cell(0,10,'',0,1);
+    $pdf->Cell(9,0,'');
+    $pdf->MultiCell(130,7,$description,0,'J');
 
     //ORIGINE
-    $pdf->Ln(15);
-    $pdf->Cell(70.,0,'');
-    $pdf->MultiCell(120,7,$origine,0,'R');
+    $pdf->Cell(9,55,'');
+    $pdf->Cell(0,25,$origine);
 
     //2ND DESCRIPTION
-    $pdf->Ln(15);
+    $pdf->Ln(25);
     $pdf->Cell(9,45,'');
-    $pdf->MultiCell(100,7,$petitTexte,0,'J');
+    $pdf->MultiCell(120,7,$petitTexte,0,'J');
 
     //INFORMATIONS CONCEPTION
     $pdf->SetFont('segoeuisl','',12);
-    $pdf->Ln(40);
+    $pdf->Ln(10);
+    $pdf->Cell(161,0,'');
+    $pdf->MultiCell(120,7,'Nom : '.$nom);
+    $pdf->Cell(161.5,0,'');
+    $pdf->MultiCell(120,7,'Coupe : '.$coupe);
+    $pdf->Cell(160,0,'');
+    $pdf->MultiCell(120,7,'Taille : '.$taille);
     $pdf->Cell(109,0,'');
     $pdf->MultiCell(120,7,'Denim : '.$denim);
     $pdf->Cell(70,0,'');
