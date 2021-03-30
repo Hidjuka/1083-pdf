@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang='fr'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>formulaire</title>
+    </head>
+
+    <form action='pdfFORM.php' method='POST'>
+        <input type='text' placeholder="nom du produit" name='nom'><br>
+        <input type='text' placeholder="coupe du produit" name='coupe'><br>
+        <input type='text' placeholder="prix du produit" name='prix'><br>
+
+        <input type='text' placeholder="la plus petite taille" name='tailleMin'><br>
+        <input type='text' placeholder="la plus grande taille" name='tailleMax'><br>
+
+        <input type='text' placeholder="la plus petite longueur" name='longueurMin'><br>
+        <input type='text' placeholder="la plus grande longueur" name='longueurMax'><br><br>
+
+        <label for="image"> Veuillez selectionner le modèle</label><br>
+        <input type='file' name='imageFiche' accept='image/jpg'><br><br>
+
+        <label for="image"> Veuillez selectionner une photo à mettre en évidence</label><br>
+        <input type='file' name='imageEvidence' accept='image/jpg'><br><br>
+
+        <label for="image"> Veuillez selectionner deux photos pour montrer apperçu</label><br>
+        <input type='file' name='imageAppercu1' accept='image/jpg'><br>
+        <input type='file' name='imageAppercu2' accept='image/jpg'><br><br>
+
+        <label for="image"> Veuillez selectionner une palette de couleur</label><br>
+        <input type='file' name='couleur' accept='image/png'><br><br>
+
+        <textarea rows="4" cols="50" name="description" placeholder="Description de l'article"></textarea><br>
+        <textarea rows="4" cols="50" name="origine" placeholder="Origine de l'article"></textarea><br>
+        <textarea rows="4" cols="50" name="petitMot" placeholder="Quelques mot sur l'article"></textarea><br>
+
+        <textarea rows="4" cols="50" name="denim" placeholder="Information sur le denim"></textarea><br>
+        <textarea rows="4" cols="50" name="couleurExpo" placeholder="Information sur la couleur de l'exposition"></textarea><br>
+        <textarea rows="4" cols="50" name="composition" placeholder="Information sur la composition"></textarea><br>
+        <textarea rows="4" cols="50" name="finitions" placeholder="Information sur les finitions"></textarea><br>
+        <textarea rows="4" cols="50" name="certification" placeholder="Information sur la certification"></textarea><br>
+
+        <input type='submit' value='Envoyé'>
+    </form>
+
+</html>
