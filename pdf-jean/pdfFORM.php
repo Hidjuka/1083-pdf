@@ -1,7 +1,5 @@
 <?php
 
-    //RISQUE DE PLANTER CAR LES IMAGES NE SONT PAS DANS LE MÊME DOSSIER QUE LE CODE
-
     require('./fpdf/fpdf.php');
 
     $pdf = new FPDF();
@@ -14,25 +12,28 @@
     //IMAGE
     $pdf->Image(($_POST['imageFiche']),30,15,95,95);
 
+    //QR CODE
+    $pdf->Image('./images/frame.png',170,5,20,0);
+
     //NOM PRODUIT
     $pdf->SetTextColor(229, 35, 32); //#E52320
     $pdf->SetFont('seguisb','',24);
     $pdf->Cell(0,40,'',0,1);
     $pdf->Cell(9.,0,'');
-    $pdf->Write(5,($_POST['nom']));
+    $pdf->Write(5,'JEAN '.($_POST['modele']));
 
     $pdf->Ln(5);
 
     //COUPE
     $pdf->SetTextColor(22, 47, 157); //#162F9D
     $pdf->SetFont('seguisb','',18);
-    $pdf->Cell(4,0,'');
-    $pdf->Write(10,'($_POST['coupe'])');
+    $pdf->Cell(15,0,'');
+    $pdf->Write(10,($_POST['nom']));
 
     //TAILLE :
     $pdf->SetFont('segoeuisl','',14);
     $pdf->SetTextColor(0, 0, 0);
-    $pdf->Cell(85,0,'');
+    $pdf->Cell(90,0,'');
     $pdf->Write(25,'Taille :');
     $pdf->Ln(6);
 
@@ -41,15 +42,15 @@
     $pdf->Write(30,($_POST['prix']));
 
     //DU .. AU .. TAILLE
-    $pdf->Cell(103,0,'');
+    $pdf->Cell(97,0,'');
     $pdf->Write(25,'du '.($_POST['tailleMin']).' au '.($_POST['tailleMax']));
     $pdf->Ln(6);
 
     //DU .. AU .. LONGUEUR
-    $pdf->Cell(133,0,'');
+    $pdf->Cell(128,0,'');
     $pdf->Write(35,'Longueur :');
     $pdf->Ln(6);
-    $pdf->Cell(133,0,'');
+    $pdf->Cell(128,0,'');
     $pdf->Write(35,'du '.($_POST['longueurMin']).' au '.($_POST['longueurMax']));
     $pdf->Ln(5);
 
@@ -59,21 +60,35 @@
     //DESCRIPTION
     $pdf->Cell(0,50,'',0,1);
     $pdf->Cell(9,40,'');
-    $pdf->MultiCell(100,7,($_POST['description']),0,'J');
+    $pdf->SetFont('segoeuisl','',24);
+    $pdf->SetTextColor(22, 47, 157); //#162F9D
+    $pdf->Write(5,'DESCRIPTION');
+
+    $pdf->Ln(10);
+    $pdf->SetTextColor(0,0,0);
+    $pdf->SetFont('segoeuisl','',14);
+    $pdf->Cell(0,10,'',0,1);
+    $pdf->Cell(9,0,'');
+    $pdf->MultiCell(130,7,($_POST['description']),0,'J');
 
     //ORIGINE
-    $pdf->Ln(15);
-    $pdf->Cell(70.,0,'');
-    $pdf->MultiCell(120,7,($_POST['origine']),0,'R');
+    $pdf->Cell(9,55,'');
+    $pdf->Cell(0,25,($_POST['origine']));
 
     //2ND DESCRIPTION
-    $pdf->Ln(15);
+    $pdf->Ln(25);
     $pdf->Cell(9,45,'');
-    $pdf->MultiCell(100,7,($_POST['petitMot']),0,'J');
+    $pdf->MultiCell(130,7,($_POST['petitMot']),0,'J');
 
     //INFORMATIONS CONCEPTION
     $pdf->SetFont('segoeuisl','',12);
-    $pdf->Ln(40);
+    $pdf->Ln(10);
+    $pdf->Cell(161,0,'');
+    $pdf->MultiCell(120,7,'Nom : '.($_POST['nom']));
+    $pdf->Cell(161.5,0,'');
+    $pdf->MultiCell(120,7,'Coupe : '.($_POST['coupe']));
+    $pdf->Cell(160,0,'');
+    $pdf->MultiCell(120,7,'Taille : '.($_POST['taille']));
     $pdf->Cell(70,0,'');
     $pdf->MultiCell(120,7,'Denim : '.($_POST['denim']),0,'R');
     $pdf->Cell(70,0,'');
