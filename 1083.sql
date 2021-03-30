@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 30 mars 2021 à 12:56
+-- Généré le : mar. 30 mars 2021 à 16:01
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -52,16 +52,17 @@ CREATE TABLE IF NOT EXISTS `jean` (
   `petite image 2` varchar(255) DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `produit ID` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`produit ID`),
-  UNIQUE KEY `ID` (`ID`)
+  `modele` varchar(30) NOT NULL,
+  `taille` varchar(30) NOT NULL,
+  PRIMARY KEY (`produit ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `jean`
 --
 
-INSERT INTO `jean` (`nom`, `couleur`, `taille min`, `taille max`, `longueur min`, `longueur max`, `prix`, `denim`, `composition`, `finitions`, `certification`, `ID`, `description`, `origine`, `petit_texte`, `coupe`, `image minia`, `palettes`, `image expo`, `petite image 1`, `petite image 2`, `logo`, `produit ID`) VALUES
-('201', 'Noir', 22, 40, 30, 36, '109.99', 'DenimOriginal (346g/m2, 12,20 Oz)', '100% coton bio', 'Fermeture a glissiere', 'Origine France Garantie (BV Cert : 6272696)', 1, 'Notre 201 en noir est un indispensable du vestiaire. Avec sa coupe indemodable et sa toile legere, vous ne voudrez plus le quitter.', 'Il est file + teint tisse + confectionne en France.', 'Son confort et son intemporalite en font une valeur sure, comme 1083.', 'DROITE', 'images/201-denimorigin-799.jpg', 'images/palette.png', 'images/201-denimorigin-803.jpg', 'images/201-denimorigin-805.jpg', 'images/201-denimorigin-807.jpg', 'images/logo.png', 1);
+INSERT INTO `jean` (`nom`, `couleur`, `taille min`, `taille max`, `longueur min`, `longueur max`, `prix`, `denim`, `composition`, `finitions`, `certification`, `ID`, `description`, `origine`, `petit_texte`, `coupe`, `image minia`, `palettes`, `image expo`, `petite image 1`, `petite image 2`, `logo`, `produit ID`, `modele`, `taille`) VALUES
+('Le Droit', 'Noir', 22, 40, 30, 36, '109.99', 'DenimOriginal (346g/m2, 12,20 Oz)', '100% coton bio', 'Fermeture a glissiere', 'Origine France Garantie (BV Cert : 6272696)', 1, 'Notre 201 en noir est un indispensable du vestiaire. Avec sa coupe indemodable et sa toile legere, vous ne voudrez plus le quitter.', 'Il est file + teint tisse + confectionne en France.', 'Son confort et son intemporalite en font une valeur sure, comme 1083.', 'Droite', 'images/201-denimorigin-799.jpg', 'images/palette.png', 'images/201-denimorigin-803.jpg', 'images/201-denimorigin-805.jpg', 'images/201-denimorigin-807.jpg', 'images/logo.png', 1, '201', 'Normale');
 
 -- --------------------------------------------------------
 
