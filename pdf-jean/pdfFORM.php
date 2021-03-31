@@ -118,7 +118,7 @@
     $pdf->Image(($_POST['imageAppercu2']),147,109.5,60,60);
 
     //LOGO
-    $pdf->Image('logo.png',165,265,25,0);
+    $pdf->Image('./images/logo.png',165,265,25,0);
 
     $pdf->Output();
 

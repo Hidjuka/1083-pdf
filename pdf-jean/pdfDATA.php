@@ -118,8 +118,7 @@
     $pdf->Rect(142, 105, 70, 70,'F');
     $pdf->Image($petiteImage2,147,109.5,60,60);
 
-    //LOGO
-    $pdf->Image($logo,165,265,25,0);
+    $pdf->Image('./images/logo.png',165,265,25,0);
 
     $pdf->Output();
 
