@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 30 mars 2021 à 16:01
+-- Généré le : mer. 31 mars 2021 à 08:14
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `jean` (
   `image expo` varchar(255) DEFAULT NULL,
   `petite image 1` varchar(255) DEFAULT NULL,
   `petite image 2` varchar(255) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT NULL,
   `produit ID` int(11) NOT NULL AUTO_INCREMENT,
   `modele` varchar(30) NOT NULL,
   `taille` varchar(30) NOT NULL,
@@ -61,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `jean` (
 -- Déchargement des données de la table `jean`
 --
 
-INSERT INTO `jean` (`nom`, `couleur`, `taille min`, `taille max`, `longueur min`, `longueur max`, `prix`, `denim`, `composition`, `finitions`, `certification`, `ID`, `description`, `origine`, `petit_texte`, `coupe`, `image minia`, `palettes`, `image expo`, `petite image 1`, `petite image 2`, `logo`, `produit ID`, `modele`, `taille`) VALUES
-('Le Droit', 'Noir', 22, 40, 30, 36, '109.99', 'DenimOriginal (346g/m2, 12,20 Oz)', '100% coton bio', 'Fermeture a glissiere', 'Origine France Garantie (BV Cert : 6272696)', 1, 'Notre 201 en noir est un indispensable du vestiaire. Avec sa coupe indemodable et sa toile legere, vous ne voudrez plus le quitter.', 'Il est file + teint tisse + confectionne en France.', 'Son confort et son intemporalite en font une valeur sure, comme 1083.', 'Droite', 'images/201-denimorigin-799.jpg', 'images/palette.png', 'images/201-denimorigin-803.jpg', 'images/201-denimorigin-805.jpg', 'images/201-denimorigin-807.jpg', 'images/logo.png', 1, '201', 'Normale');
+INSERT INTO `jean` (`nom`, `couleur`, `taille min`, `taille max`, `longueur min`, `longueur max`, `prix`, `denim`, `composition`, `finitions`, `certification`, `ID`, `description`, `origine`, `petit_texte`, `coupe`, `image minia`, `palettes`, `image expo`, `petite image 1`, `petite image 2`, `produit ID`, `modele`, `taille`) VALUES
+('Le Droit', 'Noir', 22, 40, 30, 36, '109.99', 'DenimOriginal (346g/m2, 12,20 Oz)', '100% coton bio', 'Fermeture a glissiere', 'Origine France Garantie (BV Cert : 6272696)', 1, 'Notre 201 en noir est un indispensable du vestiaire. Avec sa coupe indemodable et sa toile legere, vous ne voudrez plus le quitter.', 'Il est file + teint tisse + confectionne en France.', 'Son confort et son intemporalite en font une valeur sure, comme 1083.', 'Droite', 'images/201-denimorigin-799.jpg', 'images/palette.png', 'images/201-denimorigin-803.jpg', 'images/201-denimorigin-805.jpg', 'images/201-denimorigin-807.jpg', 1, '201', 'Normale');
 
 -- --------------------------------------------------------
 
@@ -77,6 +76,9 @@ CREATE TABLE IF NOT EXISTS `tshirt` (
   `prix` varchar(30) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `produit_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `petite image 1` varchar(255) DEFAULT NULL,
+  `petite image 2` varchar(255) DEFAULT NULL,
+  `palette` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`produit_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
@@ -84,20 +86,20 @@ CREATE TABLE IF NOT EXISTS `tshirt` (
 -- Déchargement des données de la table `tshirt`
 --
 
-INSERT INTO `tshirt` (`nom`, `couleur`, `prix`, `image`, `produit_ID`) VALUES
-('301', 'bleu marine', '35', 'images/301_bleu_marine-1536.png', 1),
-('301', 'noir', '35', 'images/301-noir-1229.png', 2),
-('301', 'rouge', '35', 'images/301-rouge-1201.png', 3),
-('301', 'blanc', '35', 'images/301-ts-1035.png', 4),
-('302', 'bleu elect', '35', 'images/302_bleu_elect-1464.png', 5),
-('302', 'bordeaux', '35', 'images/302_bordeaux-2.png', 6),
-('302', 'kaki', '35', 'images/302_kaki.png', 7),
-('302', 'rouge', '35', 'images/302_rouge-1433_1_1.png', 8),
-('302', 'bleu', '35', 'images/302-bleu-1017.png', 9),
-('302', 'noir', '35', 'images/302-noir-1156.png', 10),
-('302', 'blanc', '35', 'images/302-ts-611.png', 11),
-('322', 'bleu elect', '49', 'images/322_plusmieux-3.png', 12),
-('322', 'brique', '49', 'images/322-lafindumonde.png', 13);
+INSERT INTO `tshirt` (`nom`, `couleur`, `prix`, `image`, `produit_ID`, `petite image 1`, `petite image 2`, `palette`) VALUES
+('301', 'bleu marine', '35', 'images/301_bleu_marine-1536.png', 1, NULL, NULL, ''),
+('301', 'noir', '35', 'images/301-noir-1229.png', 2, NULL, NULL, ''),
+('301', 'rouge', '35', 'images/301-rouge-1201.png', 3, NULL, NULL, ''),
+('301', 'blanc', '35', 'images/301blanc.png', 4, NULL, NULL, 'images/palette 301.png'),
+('302', 'bleu elect', '35', 'images/302_bleu_elect-1464.png', 5, NULL, NULL, ''),
+('302', 'bordeaux', '35', 'images/302_bordeaux-2.png', 6, NULL, NULL, ''),
+('302', 'kaki', '35', 'images/302kaki.png', 7, NULL, NULL, 'images/palette 302.png'),
+('302', 'rouge', '35', 'images/302_rouge-1433_1_1.png', 8, NULL, NULL, ''),
+('302', 'bleu', '35', 'images/302-bleu-1017.png', 9, NULL, NULL, ''),
+('302', 'noir', '35', 'images/302-noir-1156.png', 10, NULL, NULL, ''),
+('302', 'blanc', '35', 'images/302-ts-611.png', 11, NULL, NULL, ''),
+('322', 'bleu elect', '49', 'images/322bleu.png', 12, NULL, NULL, ''),
+('322', 'LA FIN D\'UN MONDE BRIQUE', '49', 'images/322-lafindumonde.png', 13, 'images/322-lafindumonde-2.png', 'images/322-lafindumonde-3.png', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
