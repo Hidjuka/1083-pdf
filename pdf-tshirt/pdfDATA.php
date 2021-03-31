@@ -20,11 +20,11 @@
     $pdf->SetTextColor(229, 35, 32); //#E52320
     $pdf->Write(0,'T-SHIRTS');
     $pdf->Ln(1);
-    $pdf->Cell(143,0,'');
+    $pdf->Cell(147,0,'');
 
     $pdf->SetFont('segoeuisl','',25);
     $pdf->SetTextColor(22, 47, 157); //#162F9D
-    $pdf->Write(15,'HOMMES');
+    $pdf->Write(15,'HOMME');
     $pdf->Ln(1);
 
     //DESCRIPTION
