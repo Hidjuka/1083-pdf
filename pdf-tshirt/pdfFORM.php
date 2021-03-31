@@ -107,6 +107,9 @@
     $pdf->SetFont('segoeuisl','',14);
     $pdf->Cell(0,0,($_POST['prix']));
 
+    //LOGO
+    $pdf->Image('./images/logo.png',165,265,25,0);
+
     $pdf->Output();
 
 ?>
